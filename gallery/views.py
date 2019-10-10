@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.http  import HttpResponse
 import datetime as dt
 from django.http  import HttpResponse,Http404
+from django.conf.urls import url
 
 # Create your views here.
 def welcome(request):
@@ -10,7 +11,7 @@ def welcome(request):
 def todays_pic(request):
     date = dt.date.today()
     
-    return render(request, 'evrything/todays-pic.html', {"date": date,})
+    return render(request, 'everything/todays_pic.html', {"date": date,})
 
 def past_days_pics(request, past_date):
     try:
@@ -25,7 +26,7 @@ def past_days_pics(request, past_date):
         return redirect(pics_today)
 
     photo = Category.days_photo(date)
-    return render(request, 'everything/past-pic.html',{"date": date,"photo":photo})
+    return render(request, 'everything/past_pic.html',{"date": date,"photo":photo})
 
     day = convert_dates(date)
     html = f'''

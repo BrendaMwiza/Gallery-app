@@ -5,8 +5,8 @@ from django.http  import HttpResponse,Http404
 
 # Create your views here.
 def welcome(request):
-    return HttpResponse('Welcome to my gallery and feel free to open any category you want!')
-
+    return render(request, 'welcome.html')
+    
 def todays_pic(request):
     date = dt.date.today()
     day = convert_dates(date)

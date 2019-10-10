@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http  import HttpResponse
 import datetime as dt
 from django.http  import HttpResponse,Http404
@@ -9,15 +9,8 @@ def welcome(request):
     
 def todays_pic(request):
     date = dt.date.today()
-    day = convert_dates(date)
-    html = f'''
-        <html>
-            <body>
-                <h1>Photos for {day} {date.day}-{date.month}-{date.year}</h1>            
-            </body>
-        </html>
-            '''
-    return HttpResponse(html)
+    
+    return render(request, 'evrything/todays-pic.html', {"date": date,})
 
 def past_days_pics(request, past_date):
     try:
@@ -32,7 +25,7 @@ def past_days_pics(request, past_date):
         return redirect(pics_today)
 
     photo = Category.days_photo(date)
-    return render(request, 'all-photos/past-phots.html',{"date": date,"photo":photo})
+    return render(request, 'everything/past-pic.html',{"date": date,"photo":photo})
 
     day = convert_dates(date)
     html = f'''

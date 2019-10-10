@@ -1,4 +1,8 @@
 h1
 {
-  color: green;
+  color: rgb(58, 2, 21);
+}
+
+.navbar-brand{
+    color: white;
 }

@@ -42,8 +42,8 @@ class Pics(models.Model):
         return image
 
     @classmethod
-    def search_by_title(cls,search_term):
-        image = cls.objects.filter(title__icontains=search_term)
+    def search_by_ciro(cls,search_term):
+        image = cls.objects.filter(ciro__icontains=search_term)
         return image
 
 

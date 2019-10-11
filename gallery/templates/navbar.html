@@ -6,18 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-dark">
-    <ul class="navbar-nav">
-        <li>
-            <a style="color: rgb(196, 190, 190);" class="navbar-brand" href="{% url 'welcome' %}">GALLERY</a>
-        </li>
-        <!-- <li>
-        <a class="nav-link" href="#">Link 2</a>
-        </li>
-        <li>
-        <a class="nav-link" href="#">Link 3</a>
-        </li> -->
-    </ul>
+<nav class="navbar navbar-expand-brand bg-dark">
+
+    <div class="navbar-brand">
+        
+        <a style="color: rgb(196, 190, 190);" class="navbar-brand" href="{% url 'welcome' %}">GALLERY</a>
+    
+    </div>   
+        
+    <div class="navbar-brand" style="float:right;">
+        <form class="form-inline">
+            <input class="form-control" type="text" placeholder="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+        </form>
+    </div>
+            
 </nav>
 </body>
 </html>

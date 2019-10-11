@@ -1,4 +1,5 @@
 from django.db import models
+import datetime as dt
 
 # Create your models here.
 
@@ -27,12 +28,17 @@ class Pics(models.Model):
     ciro = models.ForeignKey(ibyiciro)
     hanu = models.ManyToManyField(Ahanu)
     pub_date = models.DateTimeField(auto_now_add=True)
-    # pic = models.ImageField(upload_to = 'pictures/',null=True)
+    pic = models.ImageField(upload_to = 'pictures/',null=True)
 
     @classmethod
     def todays_pic(cls):
         today = dt.date.today()
         image = cls.objects.filter(pub_date__date = today)
+        return image
+
+    @classmethod
+    def day_pic(cls,date):
+        image = cls.objects.filter(pub_date__date = date)
         return image
 
     @classmethod

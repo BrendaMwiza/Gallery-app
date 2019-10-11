@@ -10,8 +10,9 @@ def welcome(request):
     
 def todays_pic(request):
     date = dt.date.today()
+    image = Pics.todays_pic()
     
-    return render(request, 'everything/todays_pic.html', {"date": date,})
+    return render(request, 'everything/todays_pic.html', {"date": date,"image":image})
 
 def past_days_pics(request, past_date):
     try:
@@ -25,8 +26,8 @@ def past_days_pics(request, past_date):
     if date == dt.date.today():
         return redirect(pics_today)
 
-    # photo = Category.days_photo(date)
-    return render(request, 'everything/past_pic.html',{"date": date})
+    image = Pics.day_pic(date)
+    return render(request, 'everything/past_pic.html',{"date": date,"image":image})
 
     day = convert_dates(date)
     html = f'''

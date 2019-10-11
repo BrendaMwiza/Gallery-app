@@ -1,0 +1,26 @@
+{%extends 'everything/base.html'%} 
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    {% if pictures %}
+      <h2>Found {{ pictures|length }} of searched term {{message}}</h2>
+    {% else %}
+      <h1 class="text-center"> Found 0 picture for the search term {{message}}</h1>
+    {% endif %}
+  </div>
+  <br><br>
+  <div class="row">
+
+  {% if pictures %}
+    {% for cata in pictures %}
+      <div class="col-sm-6 col-md-3">
+        <img src="{{cata.pic.url }}" class="img-responsive" height="300px" width="200px" alt="Image" > 
+        <h1> {{ cata.title }} </h1>
+        <p>{{ cata.description }}</p>
+      </div>
+    {% endfor %}
+  {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -6,14 +6,12 @@ from django.conf.urls import url
 from .models import Pics
 
 # Create your views here.
-def welcome(request):
-    return render(request, 'welcome.html')
     
 def todays_pic(request):
     date = dt.date.today()
     image = Pics.todays_pic()
     
-    return render(request, 'everything/todays_pic.html', {"date": date,"image":image})
+    return render(request, 'welcome.html', {"date": date,"image":image})
 
 def past_days_pics(request, past_date):
     try:
@@ -28,7 +26,7 @@ def past_days_pics(request, past_date):
         return redirect(pics_today)
 
     image = Pics.day_pic(date)
-    return render(request, 'everything/past_pic.html',{"date": date,"image":image})
+    return render(request, 'welcome.html',{"date": date,"image":image})
 
     day = convert_dates(date)
     html = f'''
@@ -40,17 +38,17 @@ def past_days_pics(request, past_date):
             '''
     return HttpResponse(html)
 
-# def search(request):
-#     if 'picture' in request.GET and request.GET["article"]:
-#         search_term = request.GET.get("article")
-#         searched_articles = Article.search_by_title(search_term)
-#         message = f"{search_term}"
+def search(request):
+    if 'picture' in request.GET and request.GET["picture"]:
+        search_term = request.GET.get("picture")
+        pictures = Pics.search_by_ciro(search_term)
+        message = f"{search_term}"
 
-#         return render(request, 'all-news/search.html',{"message":message,"articles": searched_articles})
+        return render(request, 'everything/search.html',{"message":message,"pictures": pictures})
 
-#     else:
-#         message = "You haven't searched for any term"
-#         return render(request, 'all-news/search.html',{"message":message})
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'everything/search.html',{"message":message, "pictures": pictures})
 
 def pictureDis(request,picture_id):
     try:

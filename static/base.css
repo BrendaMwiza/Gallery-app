@@ -1,0 +1,17 @@
+h1
+{
+  color: rgb(119, 109, 112);
+}
+
+.navbar-brand{
+    color: white;
+}
+
+.btn{
+  background-color: darkgray
+}
+
+.btn:hover {
+  background-color: rgb(85, 85, 87);
+  color: white;
+}

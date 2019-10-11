@@ -13,7 +13,7 @@ def todays_pic(request):
     date = dt.date.today()
     image = Pics.todays_pic()
     
-    return render(request, 'everything/todays_pic.html', {"date": date,})
+    return render(request, 'everything/todays_pic.html', {"date": date,"image":image})
 
 def past_days_pics(request, past_date):
     try:
@@ -28,7 +28,7 @@ def past_days_pics(request, past_date):
         return redirect(pics_today)
 
     image = Pics.day_pic(date)
-    return render(request, 'everything/past_pic.html',{"date": date})
+    return render(request, 'everything/past_pic.html',{"date": date,"image":image})
 
     day = convert_dates(date)
     html = f'''
@@ -51,3 +51,10 @@ def past_days_pics(request, past_date):
 #     else:
 #         message = "You haven't searched for any term"
 #         return render(request, 'all-news/search.html',{"message":message})
+
+def pictureDis(request,picture_id):
+    try:
+        picture = picture.objects.get(id = picture_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,"everything/picture.html", {"picture":picture})

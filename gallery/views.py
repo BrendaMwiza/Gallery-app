@@ -25,8 +25,8 @@ def past_days_pics(request, past_date):
     if date == dt.date.today():
         return redirect(pics_today)
 
-    photo = Category.days_photo(date)
-    return render(request, 'everything/past_pic.html',{"date": date,"photo":photo})
+    # photo = Category.days_photo(date)
+    return render(request, 'everything/past_pic.html',{"date": date})
 
     day = convert_dates(date)
     html = f'''

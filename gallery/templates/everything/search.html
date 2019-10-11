@@ -4,7 +4,7 @@
 
   <div class="row">
     {% if pictures %}
-      <h2 class="text-center" style="color: rgb(252, 240, 240);">Found {{ pictures|length }} of {{message}}</h2>
+      <h2 class="text-center" style="color: rgb(252, 240, 240);">Found {{ pictures|length }} pictures of {{message}}</h2>
     {% else %}
       <h1 > Found 0 picture for the search term {{message}}</h1>
     {% endif %}
@@ -15,11 +15,11 @@
   {% if pictures %}
     {% for cata in pictures %}
       <div class="col-sm-6 col-md-3">
-        <img src="{{cata.pic.url }}" class="img-responsive btn" height="300px" width="200px" alt="Image" type="button" data-toggle="modal" data-target="#exampleModal"  > 
+        <img src="{{cata.pic.url }}" class="img-responsive btn" height="300px" width="200px" alt="Image" type="button" data-toggle="modal" data-target="#{{cata.id}}"  > 
         <h1> {{ cata.title }} </h1>
         <p style="color: rgb(252, 240, 240);">{{ cata.description }}</p>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="{{cata.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">

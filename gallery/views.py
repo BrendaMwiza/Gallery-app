@@ -10,6 +10,7 @@ from .models import Pics
 def todays_pic(request):
     date = dt.date.today()
     image = Pics.todays_pic()
+    image = Pics.objects.all()
     
     return render(request, 'welcome.html', {"date": date,"image":image})
 

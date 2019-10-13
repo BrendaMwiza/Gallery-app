@@ -13,10 +13,10 @@
   <div class="row ">
     <!-- codes from Bootstrap  -->
     <!-- Button trigger modal -->
-    
+
   {% if pictures %}
     {% for cata in pictures %}
-      <div class="col-sm-6 col-md-3">
+      <div id="overlay" class="col-sm-6 col-md-3">
         <img src="{{cata.pic.url }}" class="img-responsive btn" height="300px" width="200px" alt="Image" type="button" data-toggle="modal" data-target="#{{cata.id}}"  > 
         <h1> {{ cata.title }} </h1>
         <p style="color: rgb(252, 240, 240);">{{ cata.description }}</p>
@@ -37,6 +37,8 @@
                 <div class="modal-body">
                 </div>
                 <div class="modal-footer">
+                    <button class="btn btn-info" onclick="copyLink(link)" value="127.0.0.1:8000{{pic_item.pic.url}}" id="link" data-toggle="modal" data-target="#Modal">Copy Image</button>
+                    <a type="button" class="btn btn-secondary" target="_blank" href="{{cata.pic.url }}" >View</a>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
                 </div>

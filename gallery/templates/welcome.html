@@ -15,10 +15,12 @@
 
 <h1 style="font-family: 'Pacifico', cursive;" class="text-center">My Gallery</h1>
 <div class="container">
+    <br><br>
         <!-- Looping through images -->
-        {% for pic_item in image %}
         <div class="row">
-            <div class="col-sm-6 col-md-3">
+        {% for pic_item in image %}
+        
+            <div class=" col-md-3">
                 <h2 style="font-family: 'Source Serif Pro', serif;"> {{ pic_item.title }} </h2>
                 
                 <img src="{{ pic_item.pic.url }}" class="img-responsive btn btn-success" height="300px" width="200px" alt="Image" type="button" data-toggle="modal" data-target="#{{pic_item.id}}" >
@@ -53,6 +55,8 @@
                 <hr>
             </div>
     
-        </div>
+        
         {% endfor %}
+        </div>
+</div>
 {% endblock %}

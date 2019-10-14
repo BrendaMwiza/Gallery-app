@@ -31,6 +31,10 @@ class Pics(models.Model):
     pic = models.ImageField(upload_to = 'pictures/',null=True)
 
     @classmethod
+    def save_pic(self):
+        self.save()
+
+    @classmethod
     def todays_pic(cls):
         today = dt.date.today()
         image = cls.objects.filter(pub_date__date = today)

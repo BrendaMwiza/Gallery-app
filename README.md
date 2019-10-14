@@ -3,7 +3,7 @@
 ## By **Brenda Mwiza**
 
 ## Link to live site
-You can view the site here ---> https://gallerysha.herokuapp.com/
+You can view the site here https://gallerysha.herokuapp.com/
 
 ## Description
 This is an application that was designed to develop a personal gallery that you display your photos for others to see.
